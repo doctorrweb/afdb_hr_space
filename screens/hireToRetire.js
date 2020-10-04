@@ -3,7 +3,7 @@ import { StyleSheet, ScrollView, TouchableHighlight, Modal } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 import { Container, CheckBox, Content, Button, List, ListItem, Text, Icon, Left, Body, Right, View, H3 } from 'native-base';
 import { FromHireToRetireData } from '../data/benefits/fromHireToRetireData'
-
+import * as Font from 'expo-font'
 
 class HireToRetire extends Component {
     constructor(props) {
@@ -24,8 +24,7 @@ class HireToRetire extends Component {
                 fontWeight: 'bold',
             }
         }
-    };
-
+    }
 
     render() {
         return (
@@ -52,9 +51,7 @@ class HireToRetire extends Component {
                                                 data.content.map(step => {
                                                     return (
                                                         <View
-                                                            key={`${step.stepTitle}${data.content.indexOf(step)}`}
-
-                                                        >
+                                                            key={`${step.stepTitle}${data.content.indexOf(step)}`} >
                                                             <ListItem itemHeader first key='main'>
                                                                 <Text
                                                                     style={{

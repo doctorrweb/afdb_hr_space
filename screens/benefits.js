@@ -1,9 +1,8 @@
-import React, { Component } from "react";
-import { StyleSheet, ImageBackground, TouchableHighlight, Image, Alert, FlatList } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import PostListCard from "../containers/cardlist";
-import { Col, Row, Grid } from 'react-native-easy-grid'
-import { Card, CardItem, H2, Text, Button, Icon, Left, Body, View, Spinner, List } from 'native-base'
+import React, { Component } from "react"
+import { StyleSheet, Alert, Linking } from "react-native"
+import { Ionicons } from "@expo/vector-icons"
+import PostListCard from "../containers/cardlist"
+import { Text, Button, Icon, Spinner, List, Container } from 'native-base'
 import { getBenefitPosts } from '../data/benefits/benefitsApi'
 
 class Benefits extends Component {
@@ -15,20 +14,24 @@ class Benefits extends Component {
       isLoading: true,
       data: null
     }
+    //console.log('this.props.navigation.state.routeName ', this.props.navigation.state.routeName)
   }
 
   componentDidMount() {
+
     getBenefitPosts().then(
       data => {
         this.setState({
           isLoading: false,
           data
-        });
+        })
+        
       },
       error => {
-        Alert.alert("Error Data loading");
+        Alert.alert("Error Data loading")
       }
-    );
+    )
+    
   }
 
   static navigationOptions = ({ navigation }) => {
@@ -50,22 +53,43 @@ class Benefits extends Component {
           size={30}
         />
       )
-    };
-  };
+    }
+  }
+
+ 
+  // renderLoading = (timeout) => {
+    
+  //   setTimeout(() => {
+  //     Alert.alert("Make sure that you are connected to the Bank's Network")
+  //   }, timeout)
+
+  //   return <Spinner color="green" />
+  // }
+
 
   render() {
-    console.log(this.state.data)
     return this.state.data ? (
-      <List
-        dataArray={this.state.data}
-        renderRow={(item, index) => (
-          <PostListCard data={item} nav={this.props.navigation} />
-        )}
-        keyExtractor={(item, index) => index.toString()}
-      />
+      <Container>
+        <Button 
+        full 
+        success
+          onPress={() => Linking.openURL("https://www.afdb.org/en/about/corporate-information")}
+        >
+          <Icon type='FontAwesome' name='road' />
+          <Text>See the Roadmap</Text>
+        </Button>
+        <List
+          dataArray={this.state.data}
+          renderRow={(item, index) => (
+            <PostListCard data={item} nav={this.props.navigation} />
+          )}
+          keyExtractor={(item, index) => index.toString()}
+        />
+      </Container>
     ) : (
       <Spinner color="green" />
-    );
+      // this.renderLoading(5000)
+    )
   }
 }
 
@@ -77,6 +101,6 @@ const styles = StyleSheet.create({
     //alignItems: 'center',
     //justifyContent: 'center',
   }
-});
+})
 
-export default Benefits;
+export default Benefits

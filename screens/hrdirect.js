@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { StyleSheet, Text, View, ImageBackground, ScrollView, TouchableHighlight, Linking } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { Col, Row, Grid } from "react-native-easy-grid";
-import { Header, Button } from "native-base";
+import { Col, Row, Grid } from "react-native-easy-grid"
+import { Header, Button } from "native-base"
 
 class HRDirect extends Component {
   static navigationOptions = ({ navigation }) => {
@@ -49,7 +49,6 @@ class HRDirect extends Component {
                     style={{
                       fontSize: 22,
                       fontWeight: "bold",
-                      fontFamily: "Futura",
                       color: "#02983E",
                       paddingBottom: 10
                     }}
@@ -93,7 +92,6 @@ class HRDirect extends Component {
                     style={{
                       fontSize: 22,
                       fontWeight: "bold",
-                      fontFamily: "Futura",
                       color: "#ffffff",
                       paddingBottom: 10
                     }}
@@ -137,7 +135,6 @@ class HRDirect extends Component {
                     style={{
                       fontSize: 22,
                       fontWeight: "bold",
-                      fontFamily: "Futura",
                       color: "#02983E",
                       paddingBottom: 10
                     }}
@@ -180,7 +177,6 @@ class HRDirect extends Component {
                     style={{
                       fontSize: 22,
                       fontWeight: "bold",
-                      fontFamily: "Futura",
                       color: "#fff",
                       paddingBottom: 10
                     }}
@@ -207,7 +203,7 @@ class HRDirect extends Component {
           </TouchableHighlight>
 
           <TouchableHighlight
-          //onPress={() =>this.props.navigation.navigate("AboutAfdbPost")},
+            onPress={() => Linking.openURL("https://chhr.afdb.org/")}
           >
             <Row size={1} style={{ height: 188 }}>
               <ImageBackground
@@ -224,12 +220,11 @@ class HRDirect extends Component {
                     style={{
                       fontSize: 22,
                       fontWeight: "bold",
-                      fontFamily: "Futura",
                       color: "#02983E",
                       paddingBottom: 10
                     }}
                   >
-                    Help Desk
+                    CHHR Website
                   </Text>
                   <Button
                     bordered
@@ -241,7 +236,7 @@ class HRDirect extends Component {
                       paddingRight: 25,
                       paddingLeft: 25
                     }}
-                    //onPress={() =>this.props.navigation.navigate("AboutAfdbPost")}
+                    onPress={() => Linking.openURL("https://chhr.afdb.org/")}
                   >
                     <Text style={{ color: "#02983E" }}>View</Text>
                   </Button>

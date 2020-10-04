@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, Image } from "react-native"
+import { StyleSheet, Image, Text } from "react-native"
 import { Ionicons } from "@expo/vector-icons"
 import HTML from "react-native-render-html"
 
@@ -10,7 +10,6 @@ import {
   Card,
   CardItem,
   H2,
-  Text,
   Button,
   Icon,
   Left,
@@ -29,7 +28,7 @@ class BenefitsPost extends Component {
   static navigationOptions = {
     drawerLabel: "Benefits",
     drawerIcon: () => (
-      <Ionicons
+      <Icon
         //style={{ paddingLeft: 20 }}
         color="#fff"
         name="md-home"
@@ -50,12 +49,11 @@ class BenefitsPost extends Component {
             <CardItem>
               <Left>
                 <Body>
-                  <H2>
+                  <Text>
                     {JSON.stringify(
                       navigation.getParam("title", "default value")
                     )}
-                  </H2>
-                  <Text note>April 15, 2016</Text>
+                  </Text>
                 </Body>
               </Left>
             </CardItem>
@@ -78,36 +76,7 @@ class BenefitsPost extends Component {
                 />
               </Body>
             </CardItem>
-            <CardItem>
-              <Left>
-                <Button transparent textStyle={{ color: "#87838B" }}>
-                  <Icon name="logo-github" />
-                  <Text>1,926 stars</Text>
-                </Button>
-              </Left>
-            </CardItem>
           </Card>
-          <View style={{ flex: 1 }}>
-            <Fab
-              active={this.state.active}
-              direction="up"
-              containerStyle={{}}
-              style={{ backgroundColor: "#5067FF" }}
-              position="bottomRight"
-              onPress={() => this.setState({ active: !this.state.active })}
-            >
-              <Icon name="share" color="#02983E" />
-              <Button style={{ backgroundColor: "#34A34F" }}>
-                <Icon name="logo-whatsapp" />
-              </Button>
-              <Button style={{ backgroundColor: "#3B5998" }}>
-                <Icon name="logo-facebook" />
-              </Button>
-              <Button disabled style={{ backgroundColor: "#DD5144" }}>
-                <Icon name="mail" />
-              </Button>
-            </Fab>
-          </View>
         </Content>
       </Container>
     );

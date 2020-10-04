@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "chhr-mobile-app",
-    "slug": "chhr-mobile-app",
+    "name": "AfDB HR Space",
+    "slug": "afdb-hr-space",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -21,10 +21,12 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      "./assets/"
     ],
     "ios": {
-      "supportsTablet": true
-    }
+      "supportsTablet": true,
+      "bundleIdentifier": "com.afdb.hrspace"
+    },
+    "description": ""
   }
 }

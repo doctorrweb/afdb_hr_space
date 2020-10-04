@@ -29,7 +29,7 @@ class OnBoardingBack extends Component {
                   style={{
                     fontSize: 22,
                     fontWeight: "bold",
-                    fontFamily: "Futura",
+                    //fontFamily: "Futura",
                     color: "#ffffff",
                     paddingBottom: 10
                   }}

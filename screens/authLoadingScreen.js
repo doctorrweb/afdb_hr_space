@@ -8,6 +8,7 @@ import {
     View
  } from 'react-native'
 //import { View } from 'native-base'
+
 import { END_POINT_VALID_AUTH } from '../utils/connexionApi'
 
 //const token = AsyncStorage.getItem("isLoggedIn")
@@ -17,7 +18,6 @@ class AuthLoadingScreen extends Component {
     super(props)
     this._validateToken()
   }
-
 
   render() {
     return (
@@ -63,6 +63,7 @@ class AuthLoadingScreen extends Component {
             }
           })
           .catch(error => {
+            AsyncStorage.clear()
             this.props.navigation.navigate("Auth");
             console.log(error);
           })

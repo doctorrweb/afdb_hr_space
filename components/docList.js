@@ -27,7 +27,7 @@ let downloadDoc = Downloader(
 */
     return (
       <TouchableHighlight
-        //onPress={() => Downloader(props.data.title, props.data.link)}
+        onPress={() => Downloader(props.data.title, props.data.link)}
       >
         <ListItem icon>
           <Left>
@@ -40,13 +40,12 @@ let downloadDoc = Downloader(
             <Text note>{props.data.lastUpdate}</Text>
           </Body>
           <Right>
-            <Ionicons
-              style={{ paddingLeft: 20 }}
+            <Button 
               color="#02983E"
               onPress={() => Linking.openURL(props.data.link)}
-              name="md-download"
-              //size={30}
-            />
+              transparent>
+              <Text>View</Text>
+            </Button>
           </Right>
         </ListItem>
       </TouchableHighlight>

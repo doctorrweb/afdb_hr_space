@@ -13,17 +13,9 @@ import {
   HRDirectStack,
   BenefitsStack,
   AboutAfdbStack,
-  HireToRetireStack,
-  ReporttStack,
-  ContactStack
-} from "./appNavigator";
+  DocumentStack,
+} from "./appNavigator"
 import Documents from '../screens/document'
-import Reports from '../screens/Report'
-import HireToRetire from '../screens/hireToRetire'
-import { HeaderTitle } from 'react-navigation-stack';
-
-
-
 
 const CustomdrawerComponent = (props) => (
     <SafeAreaView style={{ flex: 1 }}>
@@ -74,7 +66,7 @@ const AppDrawerNavigator = createDrawerNavigator(
     Benefits: {
       screen: BenefitsStack,
       navigationOptions: {
-        drawerLabel: "From Hire to Retire",
+        drawerLabel: "Hire to Retire",
         drawerIcon: ({ tintColor }) => (
           <Ionicons
             //style={{ paddingLeft: 20 }}
@@ -85,22 +77,8 @@ const AppDrawerNavigator = createDrawerNavigator(
         )
       }
     },
-    NewComer: {
-      screen: HireToRetireStack,
-      navigationOptions: {
-        drawerLabel: "New Comer",
-        drawerIcon: ({ tintColor }) => (
-          <Ionicons
-            //style={{ paddingLeft: 20 }}
-            color={tintColor}
-            name="md-person-add"
-            size={20}
-          />
-        )
-      }
-    },
     Documents: {
-      screen: Documents,
+      screen: DocumentStack,
       navigationOptions: {
         drawerLabel: "HR Documents",
         drawerIcon: ({ tintColor }) => (
@@ -133,7 +111,7 @@ const AppDrawerNavigator = createDrawerNavigator(
     }
     */
   }
-);
+)
 
 
-export default AppDrawerNavigator
+export default AppDrawerNavigator;

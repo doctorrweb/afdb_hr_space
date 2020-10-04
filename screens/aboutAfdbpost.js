@@ -3,14 +3,18 @@ import { StyleSheet, Image, ImageBackground } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
 //import Post from '../components/post'
 import { Row, Grid } from "react-native-easy-grid"
-import { Container, Fab, Content, Card, CardItem, H2, Text, Button, Icon, Left, Body, View } from 'native-base'
-
+import { Container, Content, Card, CardItem, H2, Text, Button, Icon, Left, Body, View, Spinner } from 'native-base'
+import { getAfDBPost } from '../data/benefits/benefitsApi'
+import HTML from "react-native-render-html"
 
 class AboutAfdbPost extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            active: false
+            active: false,
+            isLoading: true,
+            data: null,
+            postId: ''
         };
     }
   static navigationOptions = ({ navigation }) => {
@@ -26,16 +30,38 @@ class AboutAfdbPost extends Component {
     };
   };
 
+  componentDidMount() {
+    this.setState({
+      postId: this.props.navigation.getParam("post", "default value")
+    })
+    console.log(this.state.postId)
+    getAfDBPost(this.state.postId).then(
+      data => {
+        this.setState({
+          isLoading: false,
+          data
+        });
+      },
+      error => {
+        Alert.alert("Error Data loading")
+      }
+    );
+  }
+
+
     render() {
+      if (this.state.data) {
+        this.state.data ?
+          console.log(this.state.postId)
+          : console.log('pas chargé')
         return (
           <Container>
             <Content>
               <Card style={{ flex: 0 }}>
                 <CardItem>
-                  
                   <Left>
                     <Body>
-                      <H2>Mission & Strategy</H2>
+                      <H2>{this.state.data[0].title.rendered}</H2>
                       <Text note>April 15, 2016</Text>
                     </Body>
                   </Left>
@@ -78,39 +104,13 @@ Goal 10. Reduce inequality within and among countries
                     </Text>
                   </Body>
                 </CardItem>
-                <CardItem>
-                  <Left>
-                    <Button transparent textStyle={{ color: "#87838B" }}>
-                      <Icon name="logo-github" />
-                      <Text>1,926 stars</Text>
-                    </Button>
-                  </Left>
-                </CardItem>
               </Card>
-              <View style={{ flex: 1 }}>
-                <Fab
-                  active={this.state.active}
-                  direction="up"
-                  containerStyle={{}}
-                  style={{ backgroundColor: "#5067FF" }}
-                  position="bottomRight"
-                  onPress={() => this.setState({ active: !this.state.active })}
-                >
-                  <Icon name="share" color="#02983E" />
-                  <Button style={{ backgroundColor: "#34A34F" }}>
-                    <Icon name="logo-whatsapp" />
-                  </Button>
-                  <Button style={{ backgroundColor: "#3B5998" }}>
-                    <Icon name="logo-facebook" />
-                  </Button>
-                  <Button disabled style={{ backgroundColor: "#DD5144" }}>
-                    <Icon name="mail" />
-                  </Button>
-                </Fab>
-              </View>
             </Content>
           </Container>
         );
+      } else {
+        return <Spinner color="green" />
+      }
     }
 }
 

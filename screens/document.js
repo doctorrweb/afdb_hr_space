@@ -1,28 +1,53 @@
 import React, { Component } from "react";
 import {
   
-  Text,
+  Linking,
   TouchableOpacity,
   TouchableHighlight,
-  View
-} from "react-native";
+  View,
+  Alert
+} from "react-native"
 import {
   Container,
   Content,
   Tab,
   Tabs,
   TabHeading,
+  Text,
   Icon,
+  Button,
+  List,
+  Spinner
 } from "native-base";
+import PostListCard from '../containers/cardlist'
 import DocList from '../components/docList'
 import { HRDocs } from '../data/documents/documents'
-
+import { getFaqs } from '../data/documents/documentsApi'
 
 
 class Document extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isLoading: true,
+      faqs: null
+    }
+  }
+
+  componentDidMount() {
+
+    getFaqs().then(
+      faqs => {
+        this.setState({
+          isLoading: false,
+          faqs
+        })
+      },
+      error => {
+        Alert.alert("Error Data loading")
+      }
+    )
+
   }
 
   static navigationOptions = ({ navigation }) => {
@@ -35,8 +60,20 @@ class Document extends Component {
       headerTitleStyle: {
         fontWeight: "bold"
       }
-    };
-  };
+    }
+  }
+
+  renderDocsList(docs) {
+    return (
+        <List
+            dataArray={docs}
+            renderRow={(item, index) => (
+                <PostListCard data={item} nav={this.props.navigation} />
+            )}
+            keyExtractor={(item, index) => index.toString()}
+        />
+    )
+  }
 
   renderDocs(docs, type) {
     const docTypeArray = docs.filter(doc => {
@@ -51,6 +88,13 @@ class Document extends Component {
 
     return (
       <Container>
+        <Button 
+          onPress={() => Linking.openURL("https://chhr.afdb.org/guidance-tools/")}
+          full
+        >
+          <Icon type="MaterialCommunityIcons" name='file-pdf' />
+          <Text>See more Documents</Text>
+        </Button>
         <Tabs>
           <Tab
             style={{
@@ -71,7 +115,10 @@ class Document extends Component {
             <Container>
               <Content>
                 {
-                  this.renderDocs(HRDocs, 'FAQ')
+                  this.state.faqs ?
+                    this.renderDocsList(this.state.faqs)
+                    : <Spinner color="green" />
+                  // this.renderDocs(HRDocs, 'FAQ')
                 }
               </Content>
             </Container>
@@ -91,18 +138,6 @@ class Document extends Component {
             {
               this.renderDocs(HRDocs, 'Guidance')
             }
-          </Tab>
-          <Tab
-            style={{
-              paddingTop: 25
-            }}
-            heading={
-              <TabHeading>
-                <Icon name="pie" />
-                <Text> Reports</Text>
-              </TabHeading>
-            }
-          >
           </Tab>
         </Tabs>
       </Container>

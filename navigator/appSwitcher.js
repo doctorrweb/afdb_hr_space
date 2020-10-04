@@ -3,8 +3,8 @@ import { createSwitchNavigator, createAppContainer } from 'react-navigation'
 
 import Landing from '../screens/landing'
 
-import AuthLoadingScreen from '../screens/authLoadingScreen'
-import Login from '../screens/login'
+//import AuthLoadingScreen from '../screens/authLoadingScreen'
+//import Login from '../screens/login'
 import HireToRetire from '../screens/hireToRetire'
 import MainTabs from '../navigator/appTab'
 import { AuthStack } from '../navigator/appNavigator'
@@ -13,9 +13,6 @@ import AppDrawerNavigator from './appDrawer'
 //import OnBoarding from '../screens/onboarding'
 
 const AppSwitcher = createSwitchNavigator({
-  AuthLoading: {
-    screen: AuthLoadingScreen
-  },
   Landing: {
     screen: Landing
   },
@@ -25,10 +22,6 @@ const AppSwitcher = createSwitchNavigator({
     screen: AuthStack
   },
   menu: AppDrawerNavigator
-})
-
-const MainSwitcher = createAppContainer(AppSwitcher, {
-  initialRouteName: 'AuthLoading'
 })
 
 

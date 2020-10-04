@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, AsyncStorage } from 'react-native'
+import { StyleSheet, Text, View, AsyncStorage } from 'react-native'
+import { Button, Icon } from 'native-base'
 import { Ionicons } from '@expo/vector-icons'
 
 
@@ -21,10 +22,12 @@ class Contact extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Button
-                    title="Logout"
-                    onPress={this._logout}
-                />
+                <Text>
+                    HR Space 1.0 Beta
+                </Text>
+                <Text>
+                    © 2019 AfDB HR SPACE All Rights Reserved
+                </Text>
             </View>
         );
     }

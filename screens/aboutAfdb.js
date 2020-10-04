@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, ImageBackground, ScrollView, TouchableHighlight } from "react-native";
+import { StyleSheet, Text, View, ImageBackground, ScrollView, TouchableHighlight, Linking } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { Col, Row, Grid } from "react-native-easy-grid";
+import { Col, Row, Grid } from "react-native-easy-grid"
 import { Header, Button } from "native-base";
 
 class AboutAfdb extends Component {
@@ -32,8 +32,8 @@ class AboutAfdb extends Component {
     return (
       <Grid style={{ backgroundColor: "#000" }}>
         <ScrollView>
-          <TouchableHighlight 
-          onPress={() => this.props.navigation.navigate("AboutAfdbPost")}>
+          <TouchableHighlight
+            onPress={() => Linking.openURL("https://www.afdb.org/en/about/corporate-information")}>
             <Row size={1} style={{ padding: 10, height: 200 }}>
               <ImageBackground
                 source={require("../assets/overview_afdb.png")}
@@ -44,12 +44,11 @@ class AboutAfdb extends Component {
                     style={{
                       fontSize: 22,
                       fontWeight: "bold",
-                      fontFamily: "Futura",
                       color: "#ffffff",
                       paddingBottom: 10
                     }}
                   >
-                    Overview
+                    Corporate Information
               </Text>
                   <Button
                     bordered
@@ -61,7 +60,7 @@ class AboutAfdb extends Component {
                       paddingRight: 25,
                       paddingLeft: 25
                     }}
-                    onPress={() => this.props.navigation.navigate("AboutAfdbPost")}
+                    onPress={() => Linking.openURL("https://www.afdb.org/en/about/corporate-information")}
                   >
                     <Text style={{ color: "#fff" }}>View</Text>
                   </Button>
@@ -69,7 +68,7 @@ class AboutAfdb extends Component {
               </ImageBackground>
             </Row>
           </TouchableHighlight>
-          <TouchableHighlight onPress={() => this.props.navigation.navigate("AboutAfdbPost")}>
+          <TouchableHighlight onPress={() => Linking.openURL("https://www.afdb.org/en/about/mission-strategy")}>
             <Row size={1} style={{ height: 200 }}>
               <ImageBackground
                 source={require("../assets/development.png")}
@@ -80,7 +79,6 @@ class AboutAfdb extends Component {
                     style={{
                       fontSize: 22,
                       fontWeight: "bold",
-                      fontFamily: "Futura",
                       color: "#ffffff",
                       paddingBottom: 10
                     }}
@@ -97,7 +95,7 @@ class AboutAfdb extends Component {
                       paddingRight: 25,
                       paddingLeft: 25
                     }}
-                    onPress={() => this.props.navigation.navigate("AboutAfdbPost")}
+                    onPress={() => Linking.openURL("https://www.afdb.org/en/about/mission-strategy")}
                   >
                     <Text style={{ color: "#fff" }}>View</Text>
                   </Button>
@@ -105,7 +103,7 @@ class AboutAfdb extends Component {
               </ImageBackground>
             </Row>
           </TouchableHighlight>
-          <TouchableHighlight onPress={() => this.props.navigation.navigate("AboutAfdbPost")}>
+          <TouchableHighlight onPress={() => Linking.openURL("https://www.afdb.org/en/about-us/organisational-structure")}>
             <Row size={1} style={{ height: 200 }}>
               <ImageBackground
                 source={require("../assets/structure.png")}
@@ -116,7 +114,6 @@ class AboutAfdb extends Component {
                     style={{
                       fontSize: 22,
                       fontWeight: "bold",
-                      fontFamily: "Futura",
                       color: "#ffffff",
                       paddingBottom: 10
                     }}
@@ -133,7 +130,7 @@ class AboutAfdb extends Component {
                       paddingRight: 25,
                       paddingLeft: 25
                     }}
-                    onPress={() => this.props.navigation.navigate("AboutAfdbPost")}
+                    onPress={() => Linking.openURL("https://www.afdb.org/en/about-us/organisational-structure")}
                   >
                     <Text style={{ color: "#fff" }}>View</Text>
                   </Button>
@@ -141,7 +138,7 @@ class AboutAfdb extends Component {
               </ImageBackground>
             </Row>
           </TouchableHighlight>
-          <TouchableHighlight onPress={() => this.props.navigation.navigate("AboutAfdbPost")}>
+          <TouchableHighlight onPress={() => Linking.openURL("https://www.afdb.org/en/about-us/frequently-asked-questions")}>
             <Row size={1} style={{ height: 200 }}>
               <ImageBackground
                 source={require("../assets/history.png")}
@@ -152,12 +149,11 @@ class AboutAfdb extends Component {
                     style={{
                       fontSize: 22,
                       fontWeight: "bold",
-                      fontFamily: "Futura",
                       color: "#ffffff",
                       paddingBottom: 10
                     }}
                   >
-                    History
+                    Frequently asked questions
               </Text>
                   <Button
                     bordered
@@ -169,7 +165,7 @@ class AboutAfdb extends Component {
                       paddingRight: 25,
                       paddingLeft: 25
                     }}
-                    onPress={() => this.props.navigation.navigate("AboutAfdbPost")}
+                    onPress={() => Linking.openURL("https://www.afdb.org/en/about-us/frequently-asked-questions")}
                   >
                     <Text style={{ color: "#fff" }}>View</Text>
                   </Button>

@@ -13,7 +13,7 @@ const MainTabs = createBottomTabNavigator({
   Home: {
     screen: AppDrawerNavigator,
     navigationOptions: {
-      tabBarLabel: "HR Zone",
+      tabBarLabel: "HR Space",
       tabBarIcon: ({ tintColor }) => (
         <Ionicons
           //style={{ paddingLeft: 20 }}
@@ -25,42 +25,14 @@ const MainTabs = createBottomTabNavigator({
       )
     }
   },
-  Notification: {
-    screen: NotificationStack,
-    navigationOptions: {
-      tabBarLabel: "Notification",
-      tabBarIcon: ({ tintColor }) => (
-        <Entypo
-          //style={{ paddingLeft: 20 }}
-          color={tintColor}
-          //onPress={() => navigation.openDrawer()}
-          name="notification"
-          size={24}
-        />
-      )
-    }
-  },
-  UsefulLink: {
-    screen: UsefulLinkStack,
-    navigationOptions: {
-      tabBarLabel: "UsefulLink",
-      tabBarIcon: ({ tintColor }) => (
-        <Entypo
-          color={tintColor}
-          name="link"
-          size={24}
-        />
-      )
-    }
-  },
   Contact: {
     screen: ContactStack,
     navigationOptions: {
-      tabBarLabel: "Profile",
+      tabBarLabel: "Information",
       tabBarIcon: ({tintColor}) => (
         <Ionicons
           color={tintColor}
-          name="md-contact"
+          name="md-information-circle"
           size={24}
         />
       )

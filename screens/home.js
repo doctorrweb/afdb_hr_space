@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
+import { StyleSheet, Text, View, ImageBackground } from "react-native"
 import { Ionicons } from "@expo/vector-icons";
 import { Col, Row, Grid } from 'react-native-easy-grid'
-import { Header, Button } from "native-base";
+import { Header, Button } from "native-base"
 
 
 class Home extends Component {
@@ -181,6 +181,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center"
   }
-});
+})
 
 export default Home

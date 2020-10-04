@@ -11,6 +11,7 @@ import {
  } from 'react-native';
 import { Container, Header, Content, Form, Item, Input, Label, View, Button, Spinner } from 'native-base'
 import { Authentication, connexion, END_POINT_AUTH } from '../utils/connexionApi'
+import * as Font from 'expo-font'
 
 const userInfo = {username: 'admin@test.net', password: 'bbb++123'}
 
@@ -26,6 +27,7 @@ class Login extends Component {
       token: ""
     };
   }
+
   render() {
     return (
       <Container>
@@ -48,7 +50,7 @@ class Login extends Component {
               style={{
                 fontSize: 45,
                 fontWeight: "bold",
-                fontFamily: "Futura",
+                //fontFamily: "Futura-Bold-font",
                 color: "#02983E",
                 textAlign: 'center',
                 padding: 30
@@ -116,10 +118,8 @@ class Login extends Component {
             } else {
                 this.customAlert()
             }
-          console.log(response)
         })
         .catch(error => {
-          console.log(error)
         });
   };
 

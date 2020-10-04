@@ -2,15 +2,12 @@ import React from 'react';
 import { createStackNavigator } from 'react-navigation-stack'
 import { Ionicons } from '@expo/vector-icons'
 import { View } from 'react-native'
-import Notification from '../screens/notification'
-import NotificationDetail from "../screens/notificationDetail"
 import AboutAfdb from '../screens/aboutAfdb'
 import Benefits from '../screens/benefits'
-import Benefitspost from '../screens/benefitspost';
+import Benefitspost from '../screens/benefitspost'
 import HRDirect from '../screens/hrdirect'
 import AboutAfdbPost from '../screens/aboutAfdbpost'
 import Contact from "../screens/contact"
-import UsefulLink from "../screens/usefulLink"
 import DocumentList from '../screens/document'
 import HireToRetire from '../screens/hireToRetire'
 import Login from '../screens/login'
@@ -34,62 +31,6 @@ const AuthStack = createStackNavigator({
     }
   }
 })
-
-const NotificationStack = createStackNavigator({
-  Notification: {
-    screen: Notification,
-    defaultNavigationOptions: ({ navigation }) => {
-      return {
-        headerStyle: {
-          backgroundColor: "#e9e9e9"
-        },
-        headerTitle: "Notification",
-        headerTintColor: "#02983E",
-        headerTitleStyle: {
-          fontWeight: "bold",
-          textAlign: "center",
-          flex: 1
-        },
-        headerLeft: (
-          <Ionicons
-            style={{ paddingLeft: 20 }}
-            color="#02983E"
-            onPress={() => navigation.openDrawer()}
-            name="md-menu"
-            size={30}
-          />
-        )
-      };
-    }
-  },
-  NotificationDetail: {
-    screen: NotificationDetail,
-    defaultNavigationOptions: ({ navigation }) => {
-      return {
-        headerStyle: {
-          backgroundColor: "#e9e9e9"
-        },
-        headerTitle: "Notification Detail",
-        headerTintColor: "#fff",
-        headerTitleStyle: {
-          fontWeight: "bold",
-          textAlign: "center",
-          flex: 1
-        },
-        headerLeft: (
-          <Ionicons
-            style={{ paddingLeft: 20 }}
-            color="#02983E"
-            onPress={() => navigation.goBack()}
-            name="md-menu"
-            size={30}
-          />
-        ),
-        headerRight: <View />
-      };
-    }
-  }
-});
 
 const BenefitsStack = createStackNavigator(
     {
@@ -258,7 +199,7 @@ const HRDirectStack = createStackNavigator(
             <Ionicons
               style={{ paddingLeft: 20 }}
               color="#02983E"
-              onPress={() => navigation.goBack()}
+              onPress={() => navigation.openDrawer()}
               name="md-menu"
               size={30}
             />
@@ -270,15 +211,15 @@ const HRDirectStack = createStackNavigator(
   }
 )
 
-const UsefulLinkStack = createStackNavigator({
-  UsefulLink: {
-    screen: UsefulLink,
+const DocumentStack = createStackNavigator({
+  Document: {
+    screen: DocumentList,
     defaultNavigationOptions: ({ navigation }) => {
       return {
         headerStyle: {
           backgroundColor: "#e9e9e9"
         },
-        headerTitle: "Useful Link",
+        headerTitle: "HR Documents",
         headerTintColor: "#fff",
         headerTitleStyle: {
           fontWeight: "bold",
@@ -295,7 +236,7 @@ const UsefulLinkStack = createStackNavigator({
           />
         ),
         headerRight: <View />
-      }
+      };
     }
   }
 })
@@ -321,7 +262,6 @@ const HireToRetireStack = createStackNavigator({
     }
   }
 })
-
 
 const ContactStack = createStackNavigator({
   Contact: {
@@ -358,8 +298,7 @@ export {
   BenefitsStack,
   AboutAfdbStack,
   HRDirectStack,
-  NotificationStack,
-  UsefulLinkStack,
+  DocumentStack,
   ContactStack,
   HireToRetireStack,
   AuthStack
